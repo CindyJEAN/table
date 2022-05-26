@@ -14,7 +14,7 @@ const headCells = [
   { label: "Zip Code", data: "zipCode" },
 ];
 
-function Table() {
+export function Table() {
   const [data, setData] = useState(null);
 
   useEffect(() => {
@@ -22,7 +22,6 @@ function Table() {
       setData(employees);
     }
   }, []);
-  console.log(data);
 
   return (
     <table>
@@ -46,4 +45,3 @@ function Table() {
   );
 }
 
-export default Table;
