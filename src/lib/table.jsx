@@ -1,12 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./table.css";
 import employees from "../employees.json";
-// async function getData() {
-//   const fetchedData = await fetcher(
-//     "https://api.mockaroo.com/api/bf9f9b10?count=10&key=f4b6d6b0"
-//   );
-//   return fetchedData;
-// }
 
 const headCells = [
   { label: "First Name", data: "firstName" },
@@ -20,7 +14,6 @@ const headCells = [
   { label: "Zip Code", data: "zipCode" },
 ];
 
-
 function Table() {
   const [data, setData] = useState(null);
 
@@ -31,8 +24,6 @@ function Table() {
   }, []);
   console.log(data);
 
-  
-
   return (
     <table>
       <thead>
@@ -42,14 +33,15 @@ function Table() {
           ))}
         </tr>
       </thead>
-      <tbody>{employees.map((employee, employeeIndex) => (
-        <tr key={employeeIndex}>
-          {Object.keys(employee).map((cell, cellIndex) => (
-            <td key={cellIndex}>{employee[cell]}</td>
-          ))}
-        </tr>
-
-      ))}</tbody>
+      <tbody>
+        {employees.map((employee, employeeIndex) => (
+          <tr key={employeeIndex}>
+            {Object.keys(employee).map((cell, cellIndex) => (
+              <td key={cellIndex}>{employee[cell]}</td>
+            ))}
+          </tr>
+        ))}
+      </tbody>
     </table>
   );
 }
